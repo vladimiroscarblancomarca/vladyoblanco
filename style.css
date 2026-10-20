@@ -492,4 +492,547 @@ html {
     bottom: 20px;
     right: 20px;
   }
+}:root {
+  --primary: #05d9f5;        /* Azul Cian Neón */
+  --primary-hover: #00b3cc;
+  --secondary: #ffb703;      /* Dorado / trofeo / Oruro */
+  --dark-bg: #090e17;        /* Azul ultra oscuro para resaltar el neón */
+  --card-bg: #131c2e;        /* Fondo de tarjetas */
+  --text-light: #f8fafc;
+  --text-muted: #94a3b8;
+  --whatsapp: #25d366;
+  --font-main: 'Montserrat', sans-serif;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-main);
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   EFECTO NEÓN
+   ========================================== */
+.neon-text {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px var(--primary),
+    0 0 30px var(--primary),
+    0 0 40px var(--primary);
+  animation: neonGlow 2s infinite alternate;
+}
+
+.neon-inline {
+  color: var(--primary);
+  text-shadow: 
+    0 0 5px var(--primary),
+    0 0 15px var(--primary),
+    0 0 30px var(--primary);
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 
+      0 0 4px #fff,
+      0 0 8px #fff,
+      0 0 15px var(--primary),
+      0 0 25px var(--primary),
+      0 0 35px var(--primary);
+  }
+  to {
+    text-shadow: 
+      0 0 6px #fff,
+      0 0 12px #fff,
+      0 0 22px var(--primary),
+      0 0 35px var(--primary),
+      0 0 50px var(--primary);
+  }
+}
+
+/* ==========================================
+   ENCABEZADO Y NAVEGACIÓN
+   ========================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(9, 14, 23, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(5, 217, 245, 0.3);
+  padding: 1rem 0;
+  box-shadow: 0 4px 20px rgba(5, 217, 245, 0.15);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-icon {
+  color: var(--secondary);
+  font-size: 1.6rem;
+  filter: drop-shadow(0 0 5px var(--secondary));
+}
+
+.navbar {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.navbar a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 8px var(--primary);
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+  transition: var(--transition);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   SECCIÓN HERO
+   ========================================== */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #090e17 0%, #0f1c30 100%);
+  text-align: center;
+  overflow: hidden;
+  padding: 4rem 1rem;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(5,217,245,0.12) 0%, rgba(9,14,23,0.9) 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(5, 217, 245, 0.1);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 10px rgba(5, 217, 245, 0.3);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* BOTONES */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #090e17;
+  box-shadow: 0 0 15px rgba(5, 217, 245, 0.5);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(5, 217, 245, 0.8);
+}
+
+.btn-outline {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 10px rgba(5, 217, 245, 0.2);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: #090e17;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(5, 217, 245, 0.6);
+}
+
+/* ==========================================
+   TÍTULOS DE SECCIÓN
+   ========================================== */
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.section-title h2 span {
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(5, 217, 245, 0.4);
+}
+
+.section-title p {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* ==========================================
+   SECCIÓN DE NOTICIAS
+   ========================================== */
+.news-section {
+  padding: 5rem 0;
+  background-color: var(--dark-bg);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.news-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(5, 217, 245, 0.15);
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(5, 217, 245, 0.25);
+  border-color: var(--primary);
+}
+
+.card-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--primary);
+  color: #090e17;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  box-shadow: 0 0 8px rgba(5, 217, 245, 0.5);
+}
+
+.card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-date {
+  font-size: 0.8rem;
+  color: var(--secondary);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.card-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.read-more {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.read-more:hover {
+  color: #fff;
+  text-shadow: 0 0 8px var(--primary);
+  gap: 0.8rem;
+}
+
+/* ==========================================
+   SECCIÓN COBERTURA
+   ========================================== */
+.coverage-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, var(--dark-bg) 0%, #0d1624 100%);
+}
+
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.coverage-box {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(5, 217, 245, 0.1);
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.coverage-box:hover {
+  background-color: var(--card-bg);
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(5, 217, 245, 0.2);
+}
+
+.coverage-box i {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 8px rgba(5, 217, 245, 0.5));
+}
+
+.coverage-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.coverage-box p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.footer {
+  background-color: #04070c;
+  border-top: 1px solid rgba(5, 217, 245, 0.2);
+  padding-top: 4rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-quote {
+  background: rgba(5, 217, 245, 0.05);
+  border-left: 4px solid var(--primary);
+  box-shadow: -5px 0 15px rgba(5, 217, 245, 0.1);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.quote-icon {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.footer-quote blockquote {
+  font-style: italic;
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer-bottom {
+  background-color: #020305;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================
+   BOTÓN FLOTANTE WHATSAPP
+   ========================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--whatsapp);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  z-index: 2000;
+  text-decoration: none;
+  transition: var(--transition);
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO
+   ========================================== */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+    bottom: 20px;
+    right: 20px;
+  }
 }
